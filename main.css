@@ -1,3 +1,4 @@
+
 p, li, a { 
     font-family: sans-serif;
     line-height:1.45em;
@@ -9,13 +10,15 @@ h1,h2,h3,h4 {
     line-height:1.2em;
     margin-bottom:20px;
 }
+section { margin:40px;}
 
 header {  
     
     background: #e96443;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #904e95, #e96443);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #904e95, #e96443); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    padding:20px;
+    padding:40px;
+    color:#c8ffe4;
 }
 
 header h1 {
@@ -32,20 +35,24 @@ nav {
     width:100%;
     padding-top:10px;
     padding-bottom:10px;
+    
 
+}
+nav ul {
+    float:right;
 }
 
 nav li {
     list-style: none;
     font-size:.7em;
-    float:right;
+    float:left;
     margin:0 10px 0 10px;
 }
 
 nav li a{
     text-transform:uppercase;
     text-decoration:none;
-    color:white;
+    color:#c8ffe4;
 }
 
 
