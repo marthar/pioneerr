@@ -51,12 +51,14 @@ nav li {
     font-size:.7em;
     float:left;
     margin:0 10px 0 10px;
+   
 }
 
 nav li a{
     text-transform:uppercase;
     text-decoration:none;
     color:#c8ffe4;
+    letter-spacing:1px;
 }
 
 h1 { 
