@@ -19,8 +19,8 @@ section { margin:100px 180px 100px 180px;}
 header {  
     
     background: #e96443;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, rgba(144,78,149,.3), rgba(233,100,67,.5));  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, rgba(144,78,149,.1), rgba(233,100,67,.5)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: -webkit-linear-gradient(to right, rgb(39, 0, 115), rgb(204, 40, 0));  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, rgb(39, 0, 115), rgb(204, 40, 0)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     color:#c8ffe4;
     position:relative;
     height:450px;
@@ -40,6 +40,7 @@ header h1 {
     height:100%;
     left:0px;
     top:0px;
+    opacity:.75;
 }
 
 #header-content {
