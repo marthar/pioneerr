@@ -8,12 +8,27 @@
         <meta name="description" content="Augmented and Virtual Reality for Designers & Storytellers.">
         <link rel="stylesheet" href="normalize.css">
         <link rel="stylesheet" href="main.css">
+        <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+        <script src="https://npmcdn.com/aframe-animation-component@3.0.1"></script>
+        <script src="https://npmcdn.com/aframe-event-set-component@3.0.1"></script>
+        <script src="https://npmcdn.com/aframe-layout-compoånent@3.0.1"></script>
+        <script src="https://npmcdn.com/aframe-template-component@3.1.1"></script>
     </head>
 <body>
 <header>
+    <div id='intro-video'>
+    <a-scene embedded>
+          <a-assets>
+              <video id="massart" autoplay loop="true" src="https://cdn.glitch.com/34f922c7-089e-46cc-8ff7-6b49a91cc719%2F360_0045.mp4?1522456499250"> </video>
+           </a-assets>
+          <a-videosphere src="#massart"></a-videosphere>
+    </a-scene>
+    </div>
+    <div id='header-content'>
     <h1>Augmented &amp; Virtual Reality for Designers and Storytellers</h1>
     <p>Mondays &amp; Wednesdays, 6 &ndash; 10 PM</p>
-    <p id="about">June 27th &ndash; August 1st, Massachusetts College of Art + Design</p>    
+    <p id="about">June 27th &ndash; August 1st, Massachusetts College of Art + Design</p>
+    </div>
 </header>    
     <nav>
         <ul>
