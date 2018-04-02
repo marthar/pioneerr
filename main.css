@@ -50,6 +50,7 @@ header h1 {
     bottom:0;
     left:0;
     user-select:none;
+
     
 }
 
@@ -62,6 +63,7 @@ nav {
     width:100%;
     padding-top:10px;
     padding-bottom:10px;
+ 
     
 
 }
@@ -80,8 +82,9 @@ nav li {
 nav li a{
     text-transform:uppercase;
     text-decoration:none;
-    color:#c8ffe4;
-    letter-spacing:1px;
+    color:#c8ffe4; /* green */
+    color:lightyellow; /* light blue */
+    letter-spacing:1.5px;
 }
 
 h1 { 
@@ -110,4 +113,10 @@ h1 {
     }
     h1 { font-size:1.5em;}
     nav ul {float:left; }
+}
+
+header p {
+    color:lightyellow; /* light blue */
+    line-height: 1.5em;
+    font-weight: 300;
 }
