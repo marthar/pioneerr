@@ -1,15 +1,16 @@
 body {
-    font-size:18px;
+    font-size:16px;
 }
 
 p, li, a { 
-    font-family: Lato, Verdana, sans-serif;
+    font-family: Verdana, sans-serif;
     line-height:1.65em;
     margin-bottom:20px;
 }
 
 h1,h2,h3,h4 { 
-    font-family:Georgia;
+    font-family:Oswald, Georgia;
+    font-weight: 100;
     line-height:1.2em;
     margin-bottom:20px;
     color:#e96443; /*sofie color choice */
@@ -30,7 +31,8 @@ header {
 }
 
 header h1 {
-    font-size:3em;
+    font-size:5em;
+    font-weight: 100;
     color:white;
     margin-top:250px;
 }
@@ -63,12 +65,14 @@ nav {
     width:100%;
     padding-top:10px;
     padding-bottom:10px;
+
  
     
 
 }
 nav ul {
     float:right;
+    margin-right: 150px;
 }
 
 nav li {
@@ -90,6 +94,7 @@ nav li a{
 
 h1 { 
     font-size:3em;
+    font-weight:300;
 }
 
 @media all and (max-width: 1024px) { 
@@ -107,9 +112,15 @@ h1 {
 } 
 
 @media all and (max-width: 480px) {
-
+    #header-content { 
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+    
     header h1 {
         font-size:2.5em;
+       
+      
         
     }
     h1 { font-size:1.5em;}
