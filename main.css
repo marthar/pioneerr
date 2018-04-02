@@ -12,7 +12,7 @@ h1,h2,h3,h4 {
     font-family:Georgia;
     line-height:1.2em;
     margin-bottom:20px;
-    color:#904e95;
+    color:#e96443; /*sofie color choice */
 }
 section { margin:100px 180px 100px 180px;}
 
@@ -23,7 +23,8 @@ header {
     background: linear-gradient(to right, rgb(39, 0, 115), rgb(204, 40, 0)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     color:#c8ffe4;
     position:relative;
-    height:450px;
+    height:550px;
+    background: black; /*sofiebackground */
 
     
 }
@@ -57,9 +58,8 @@ header h1 {
 nav { 
     position:fixed;
     top:0px;
-    background: #e96443;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, rgba(144,78,149,.3), #e96443);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, rgba(144,78,149,.3), #e96443); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: rgb(233, 100, 67, .75);  /* fallback for old browsers */
+   
     width:100%;
     padding-top:10px;
     padding-bottom:10px;
