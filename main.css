@@ -3,7 +3,7 @@ body {
 }
 
 p, li, a { 
-    font-family: Verdana, sans-serif;
+    font-family: Lato, Verdana, sans-serif;
     line-height:1.65em;
     margin-bottom:20px;
 }
@@ -58,7 +58,7 @@ header h1 {
 nav { 
     position:fixed;
     top:0px;
-    background: rgb(233, 100, 67, .75);  /* fallback for old browsers */
+    background: rgb(233, 100, 67, .85);  /* fallback for old browsers */
    
     width:100%;
     padding-top:10px;
@@ -85,6 +85,7 @@ nav li a{
     color:#c8ffe4; /* green */
     color:lightyellow; /* light blue */
     letter-spacing:1.5px;
+
 }
 
 h1 { 
@@ -118,5 +119,4 @@ h1 {
 header p {
     color:lightyellow; /* light blue */
     line-height: 1.5em;
-    font-weight: 300;
 }
