@@ -9,10 +9,11 @@ p, li, a {
 }
 
 h1,h2,h3,h4 { 
-    font-family:Georgia;
+    font-family:Oswald, Georgia;
+    font-weight: 200;
     line-height:1.2em;
     margin-bottom:20px;
-    color:#904e95;
+    color:#e96443; /*sofie color choice */
 }
 section { margin:100px 180px 100px 180px;}
 
@@ -23,13 +24,15 @@ header {
     background: linear-gradient(to right, rgb(39, 0, 115), rgb(204, 40, 0)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     color:#c8ffe4;
     position:relative;
-    height:450px;
+    height:550px;
+    background: black; /*sofiebackground */
 
     
 }
 
 header h1 {
-    font-size:3em;
+    font-size:5em;
+    font-weight: 100;
     color:white;
     margin-top:250px;
 }
@@ -57,18 +60,19 @@ header h1 {
 nav { 
     position:fixed;
     top:0px;
-    background: #e96443;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, rgba(144,78,149,.3), #e96443);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, rgba(144,78,149,.3), #e96443); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: rgb(233, 100, 67, .85);  /* fallback for old browsers */
+   
     width:100%;
     padding-top:10px;
     padding-bottom:10px;
+
  
     
 
 }
 nav ul {
     float:right;
+    margin-right: 150px;
 }
 
 nav li {
@@ -85,10 +89,12 @@ nav li a{
     color:#c8ffe4; /* green */
     color:lightyellow; /* light blue */
     letter-spacing:1.5px;
+
 }
 
 h1 { 
     font-size:3em;
+    font-weight:300;
 }
 
 @media all and (max-width: 1024px) { 
@@ -106,9 +112,15 @@ h1 {
 } 
 
 @media all and (max-width: 480px) {
-
+    #header-content { 
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+    
     header h1 {
         font-size:2.5em;
+       
+      
         
     }
     h1 { font-size:1.5em;}
@@ -118,5 +130,9 @@ h1 {
 header p {
     color:lightyellow; /* light blue */
     line-height: 1.5em;
-    font-weight: 300;
+    text-transform:uppercase;
+    text-decoration:none;
+    color:lightyellow; /* light blue */
+    letter-spacing:1.5px;
+    font-size: .7em;
 }
