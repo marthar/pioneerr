@@ -114,6 +114,28 @@ h1 {
 
 .intro { margin-top:0;}
 
+
+
+.button { 
+    font-family: 'Pathway Gothic One', sans-serif;
+    letter-spacing:.15em; 
+    padding:20px;
+    border:1px solid rgb(255, 66, 19);
+    margin-top:20px;
+    font-size:.9em;
+    text-decoration: none;
+}
+
+a.button  { 
+    text-transform:uppercase;
+    color:rgb(255, 66, 19);
+}
+
+.italic {
+    font-style: italic;
+}
+
+
 @media all and (max-width: 1024px) { 
     #header-content, section, nav ul { 
         margin-left:80px;
@@ -123,17 +145,6 @@ h1 {
 
 
 } 
-
-.button { 
-    padding:20px;
-    background: rgba(255, 66, 19, 0.85);  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, rgba(255, 64, 143, 0.65), rgba(255, 51, 0, 0.85));  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, rgba(255, 64, 143, 0.65), rgba(255, 51, 0, 0.85)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    
-}
-.italic {
-    font-style: italic;
-}
 
 @media all and (max-width: 900px) {
     #header-content, section { 
