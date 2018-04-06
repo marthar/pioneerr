@@ -16,7 +16,7 @@ h1,h2,h3,h4 {
     color:rgba(255, 51, 0, .8);
     line-height: 1.1em;
 }
-section { margin:100px 180px 100px 180px;}
+section { margin:10px 180px 50px 180px;}
 
 header {  
     color:#c8ffe4;
@@ -133,6 +133,9 @@ a.button  {
     font-style: italic;
 }
 
+#about, #bio, #syllabi, #contact { padding-top:20px;}
+
+
 
 @media all and (max-width: 1024px) { 
     #header-content, section, nav ul { 
@@ -160,7 +163,6 @@ a.button  {
     }
     #header-content h1 { font-size:2.25em;}
     #header-content h2 { font-size:1.25em;}
-    nav ul {float:left; margin-right:30px; margin-left:0; }
     #header-content {        margin-top:-70px;}
     }
 
