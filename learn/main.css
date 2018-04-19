@@ -63,6 +63,9 @@ nav li a{
 
 }
 
+
+.a-body #intro-video { mix-blend-mode:normal;}
+
 h1 { 
     font-size:3em;
 }
