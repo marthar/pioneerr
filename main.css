@@ -73,6 +73,7 @@ h1 {
 }
 
 
+<<<<<<< HEAD
 #intro-video {
     position:absolute;
     width:100%;
@@ -81,6 +82,12 @@ h1 {
     top:0px;
     opacity:.75;
     z-index:2;
+=======
+#main-header img {
+    width:75px; 
+    margin-right:2em;
+
+>>>>>>> parent of a821254... playing with css grid
 }
 
 #header-content {
@@ -96,6 +103,7 @@ h1 {
     
 }
 
+<<<<<<< HEAD
 #header-content h2 {
     font-family: 'Cardo', serif;
     font-style: italic;
@@ -124,6 +132,19 @@ h1 {
     margin-top:20px;
     font-size:.9em;
     text-decoration: none;
+=======
+nav {    width:70%; background-color:rgba(255,255,255,.9);}
+nav ul { 
+    display:flex; 
+    align-items:center; 
+    justify-content: center;
+    width: 100%;
+    padding:0;
+    margin:0;
+
+
+    
+>>>>>>> parent of a821254... playing with css grid
 }
 
 a.button  { 
@@ -134,6 +155,7 @@ a.button  {
 .italic {
     font-style: italic;
 }
+<<<<<<< HEAD
 
 
 @media all and (max-width: 1024px) { 
@@ -181,3 +203,5 @@ a.button  {
 
 
 
+=======
+>>>>>>> parent of a821254... playing with css grid
