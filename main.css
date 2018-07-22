@@ -9,7 +9,7 @@ p, li, a {
 }
 
 h1,h2,h3,h4 { 
-    font-family: 'Pathway Gothic One', sans-serif;
+    font-family: 'Cardo', sans-serif;
     text-transform: uppercase;
     font-weight: lighter;
     line-height:1.2em;
@@ -118,7 +118,7 @@ h1 {
 
 .button { 
     font-family: 'Pathway Gothic One', sans-serif;
-    letter-spacing:.15em; 
+    letter-spacing:.1em; 
     padding:20px;
     border:1px solid rgb(255, 66, 19);
     margin-top:20px;
