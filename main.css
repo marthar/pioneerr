@@ -71,7 +71,6 @@ h3 {
 #main-header img {
     width:75px; 
     margin-right:2em;
-
 }
 
 /* The sticky class is added to the navbar with JS when it reaches its scroll position */
@@ -80,6 +79,17 @@ h3 {
   top: 0;
 }
 
+.media-icons {
+    display:flex;
+    align-items:center; 
+}
+
+.media-icons img {
+    width:75px;
+    margin:2em 4em 1em 0;
+}
+
+
 nav {    width:70%; background-color:rgba(255,255,255,.9);}
 nav ul { 
     display:flex; 
@@ -87,10 +97,7 @@ nav ul {
     justify-content: center;
     width: 100%;
     padding:0;
-    margin:0;
-
-
-    
+    margin:0;    
 }
 
 nav li {
@@ -105,3 +112,45 @@ nav li {
 section {
     padding-top:1em;
 }
+
+.wrapper {
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+
+.box img { width:100%;}
+.box h2 { margin-top:1em; margin-bottom: -.4em; }
+.box .media { display:flex; align-items:center;}
+.box .media img { width:25px; margin:.2em .3em; }
+
+ .a {
+     grid-column: 1 / span 3;
+ }
+ .b {
+     grid-column: 1 / span 2;
+     grid-row: 2 / span 1;
+ }
+ .c {
+     grid-column: 1 / span 2 ;
+     grid-row: 3 ;
+ }
+ .d {
+     grid-column: 3 / span 2 ;
+     grid-row: 3 ;
+ }
+
+ .e {
+     grid-column: 3 / span 2 ;
+     grid-row: 4 ;
+ }
+ .f {
+     grid-column: 3 / span 2 ;
+     grid-row: 5 ;
+ }
+ .g {
+     grid-column: 1 / span 2 ;
+     grid-row: 5 ;
+     text-align: right;
+ }
