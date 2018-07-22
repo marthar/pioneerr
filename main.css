@@ -1,1 +1,107 @@
-form input { float:left;}
+body {
+    font-family: "acumin-pro";
+    margin:1% 15%;
+    font-size: 18px;
+    line-height: 1.45em;
+    font-weight:200;
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "acumin-pro-wide";
+    font-weight: 500;
+    letter-spacing: .1em;
+    line-height: 1.1em;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0 0 .25em 0;
+    padding:0;
+}
+a { 
+    text-decoration: none;
+    color:black;
+}
+
+a visited {
+    color:black;
+}
+
+a:hover {
+    color:#ff09d1;
+}
+
+
+h1 {
+    margin:2em 0 0.15em 0;
+    font-size:2em;
+}
+
+h2 {
+    margin:1em 0 .25em 0;
+    font-size:1.5em;
+
+
+}
+
+h3 {
+    font-size:1em;
+    line-height:1.45em;
+    margin:0 0 .5em 0;
+}
+#home-header {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column
+}
+
+#home-header img {    
+    width:20%;
+    min-width:100px; 
+    margin-bottom:1em;
+}
+
+#main-header {
+    display:flex;
+    align-items: center;
+}
+
+#main-header img {
+    width:75px; 
+    margin-right:2em;
+
+}
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+}
+
+nav {    width:70%; background-color:rgba(255,255,255,.9);}
+nav ul { 
+    display:flex; 
+    align-items:center; 
+    justify-content: center;
+    width: 100%;
+    padding:0;
+    margin:0;
+
+
+    
+}
+
+nav li {
+    margin:2%;
+    list-style: none;
+    text-align: center;
+    font-family: "acumin-pro-wide";
+    font-weight: 500;
+    letter-spacing: .1em;
+}
+
+section {
+    padding-top:1em;
+}
