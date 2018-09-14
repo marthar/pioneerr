@@ -31,6 +31,14 @@ a:hover {
     color:#ff09d1;
 }
 
+p{
+    margin-top: 2em;
+    line-height: 1.6em;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: justify;
+}
 
 h1 {
     margin:2em 0 0.15em 0;
@@ -41,8 +49,6 @@ h2 {
     font-family: "acumin-pro";
     margin:1em 0 .25em 0;
     font-size:1.5em;
-
-
 }
 
 h3 {
@@ -107,97 +113,22 @@ section {
     display:block;
     box-shadow: 0 0 10px rgba(0,0,0,.2);
 }
-/* The sticky class is added to the navbar with JS when it reaches its scroll position */
-.sticky {
-  position: fixed;
-  top: 0;
-}
 
-.media-icons {
-    display:flex;
-    align-items:center; 
-}
+nav {   position:fixed; top:0; left:.1em; width:100%; background-color:rgba(255,255,255,.9);}
 
-.media-icons img {
-    width:40px;
-    margin:2em 2em 1em 0;
-}
-
-
-nav {    width:70%; background-color:rgba(255,255,255,.9);}
-nav ul { 
-    display:flex; 
-    align-items:center; 
-    justify-content: center;
-    width: 100%;
-    padding:0;
-    margin:0;    
+nav ul {
+        padding: .2em;
+    margin: 0;
 }
 
 nav li {
-    margin:2%;
     list-style: none;
-    text-align: center;
     font-family: "acumin-pro-wide";
     font-weight: 500;
     letter-spacing: .1em;
+    font-size:.7em;
+    text-transform:uppercase;
 }
-
-section {
-    padding-top:1em;
-}
-
-.wrapper {
-        display: grid;
-        grid-gap: 20px;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-    }
-
-
-.box img { width:100%;}
-.box video {width:100%;}
-.box h2 { margin-top:1em; margin-bottom: -.4em; }
-.box .media { display:flex; align-items:center;}
-.box .media img { width:20px; margin:.2em .4em; }
-.i p { font-size: .8em; margin:0; line-height:1em;}
-.i h4 { margin-bottom:0 0 .5em 0;}
-
- .a {
-     grid-column: 1 / span 4;
- }
- .b {
-     grid-column: 1 / span 2;
-     grid-row: 2 / span 1;
- }
- .c {
-     grid-column: 1 / span 2 ;
-     grid-row: 3 ;
- }
- .d {
-     grid-column: 3 / span 2 ;
-     grid-row: 3 ;
- }
-
- .e {
-     grid-column: 1 / span 2 ;
-     grid-row: 4 ;
- }
- .f {
-     grid-column: 3 / span 2 ;
-     grid-row: 5 ;
- }
- .g {
-     grid-column: 1 / span 2 ;
-     grid-row: 5 ;
- }
-
-.h {
-     grid-column: 1 / span 4;
- }
-
-.i {
-     grid-column: span 2;
- }
 
 @media all and (max-width: 550px) {
     body {  font-size:16px; margin:1% 10%;}
