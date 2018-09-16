@@ -32,11 +32,8 @@ a:hover {
 }
 
 p{
-    margin-top: 2em;
+    margin-bottom: 2em;
     line-height: 1.6em;
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
     text-align: justify;
 }
 
@@ -49,12 +46,16 @@ h2 {
     font-family: "acumin-pro";
     margin:1em 0 .25em 0;
     font-size:1.5em;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 h3 {
-    font-size:1em;
+    font-size:1.15em;
     line-height:1.5em;
     margin:0 0 .5em 0;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #about h3  {font-size:1.25em; line-height:1.65em; margin-top:.5em; }
@@ -109,9 +110,11 @@ section {
 }
 
 #pursuit-header img {
-    margin:2em auto 0 auto;
+    margin:2em auto 3em auto;
     display:block;
     box-shadow: 0 0 10px rgba(0,0,0,.2);
+    width: 80%;
+    max-width: 400px;
 }
 
 nav {   position:fixed; top:0; left:.1em; width:100%; background-color:rgba(255,255,255,.9);}
@@ -130,8 +133,22 @@ nav li {
     text-transform:uppercase;
 }
 
-@media all and (max-width: 550px) {
+.pursuit {
+        max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 80%;
+}
+
+.pursuit img {
+    width: 47%;
+    margin: 1em 1% 3em 1%;
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+}
+
+@media screen and  (max-width: 550px) {
     body {  font-size:16px; margin:1% 10%;}
+    p { width:100%;}
 
     .wrapper{ display:block;}
     .box h2 {margin-bottom:0.2em;}
