@@ -33,8 +33,9 @@ a:hover {
 
 
 h1 {
-    margin:2em 0 0.15em 0;
-    font-size:2em;
+    margin: 2em 0 0.15em 0;
+    font-size: 1.25em;
+    text-transform: uppercase;
 }
 
 h2 {
@@ -51,7 +52,12 @@ h3 {
     margin:0 0 .5em 0;
 }
 
-#about h3  {font-size:1.25em; line-height:1.65em; margin-top:.5em; }
+#about h3  {    
+    font-size: 1em;
+    line-height: 1.65em;
+    margin-top: .5em;
+    max-width: 500px;
+}
 
 h4  { font-family: "acumin-pro";}
 section {
@@ -135,12 +141,14 @@ nav ul {
 }
 
 nav li {
-    margin:2%;
+    margin: 2%;
     list-style: none;
     text-align: center;
     font-family: "acumin-pro-wide";
     font-weight: 500;
     letter-spacing: .1em;
+    font-size: .65em;
+    text-transform: uppercase;
 }
 
 section {
