@@ -28,11 +28,11 @@ a visited {
 }
 
 a:hover {
-    color:#ff09d1;
+    color:#ff5f89;
 }
 
 p{
-    margin-bottom: 2em;
+    margin-bottom: 1em;
     line-height: 1.6em;
     text-align: justify;
 }
@@ -145,6 +145,18 @@ nav li {
     margin: 1em 1% 3em 1%;
     box-shadow: 0 0 10px rgba(0,0,0,.2);
 }
+
+.button {
+    padding:10px 15px;
+    background-color:black;
+    color:white;
+}
+
+.button:hover {
+
+}
+
+
 
 @media screen and  (max-width: 550px) {
     body {  font-size:16px; margin:1% 10%;}
