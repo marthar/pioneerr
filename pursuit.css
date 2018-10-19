@@ -64,6 +64,7 @@ h4  { font-family: "acumin-pro";}
 section {
     margin-bottom:10em;
 }
+#pursuit-header div {margin-top: 50px;}
 #home-header {
     display: flex;
     height: 100vh;
