@@ -16,6 +16,7 @@
       <a-assets>
         <a-asset-item id="originalfish" src="https://cdn.glitch.com/886b97ad-5de4-4279-acfa-25ad737c9fe0%2FGoldfish.gltf?1551911632203"></a-asset-item>
         <a-asset-item id="trash" src="https://cdn.glitch.com/886b97ad-5de4-4279-acfa-25ad737c9fe0%2Fmodel.gltf?1551910715593"></a-asset-item>
+          <a-asset-item id="angel" src="assets/coral_fish/"></a-asset-item>
       </a-assets>
   
       <a-entity animation="property: rotation; to: 0 360 0; loop: true; dur: 20000">
@@ -34,6 +35,13 @@
         </a-entity>
       </a-entity>
       
+          <a-entity animation="property: rotation; to: 0 360 0; loop: true; dur: 35000">
+        <a-entity gltf-model="#angel" 
+                  scale=".75 .75 .75"
+                  position="0 1.42 -4"
+                  rotation="-5 -90 0">
+        </a-entity>
+      </a-entity>
     
 
       
