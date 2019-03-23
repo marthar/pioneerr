@@ -4,12 +4,19 @@
     <title>Trashy Fish</title>
     <meta name="description" content="trashy fish">
     <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
-    <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+
+    <style>
+      #videoElement {
+        width:100%;
+        height:100%;
+        object-fit: cover;
+      }
+    </style>
 
   </head>
-  
     <body style="margin : 0px; overflow: hidden;">
-    <a-scene embedded arjs gltf-model="dracoDecoderPath: draco_decoder.js;">
+    <video autoplay="true" id="videoElement"></video>
+    <a-scene gltf-model="dracoDecoderPath: draco_decoder.js;" background="transparent:true">
 
       <a-assets>
         <a-asset-item id="cup" src="assets/starbucks_paper_cup/scene.gltf"></a-asset-item>
@@ -41,14 +48,23 @@
         </a-entity>
       </a-entity>
     
-
-      
-  <a-sky rotation="0 -90 0"></a-sky> 
     </a-scene>
   </body>
     
     <script>
       document.getElementById("angel").addEventListener("model-error",function(e) { console.log(e); })
+
+      var video = document.querySelector("#videoElement");
+
+      if (navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({ video: true })
+        .then(function (stream) {
+          video.srcObject = stream;
+        })
+        .catch(function (error) {
+          console.log("Something went wrong!");
+        });
+      }
     
     </script>
 </html>
