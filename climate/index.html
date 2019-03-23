@@ -4,7 +4,6 @@
     <title>Trashy Fish</title>
     <meta name="description" content="trashy fish">
     <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
-
     <style>
       #videoElement {
         width:100%;
@@ -27,40 +26,50 @@
     <body style="margin : 0px; overflow: hidden;">
     <video playsinline autoplay loop muted id="videoElement"></video>
     <div class='cover'></div>
-    <a-scene gltf-model="dracoDecoderPath: draco_decoder.js;" background="transparent:true" fog="type: exponential; density: 0.15; color: blue; near:0; ">
+    <a-scene gltf-model="dracoDecoderPath: draco_decoder.js;" background="transparent:true" fog="type: exponential; density: 0.08; color: blue; near:0; ">
 
       <a-assets>
-        <a-asset-item id="cup" src="assets/starbucks_paper_cup/scene.gltf"></a-asset-item>
-        <a-asset-item id="trash" src="assets/banana-lid.gltf"></a-asset-item>
-        <a-asset-item id="angel" src="assets/clownfish/scene.gltf"></a-asset-item>
 
-         <a-asset-item id="fish-obj" src="assets/fish/fishy.obj"></a-asset-item>
-         <a-asset-item id="fish-mtl" src="assets/fish/fishy.mtl"></a-asset-item>
+         <a-asset-item id="fish1-obj" src="assets/fish3/fish.obj"></a-asset-item>
+         <a-asset-item id="fish2-obj" src="assets/fish4/fish.obj"></a-asset-item>
+         <a-asset-item id="fish3-obj" src="assets/fish5/fish.obj"></a-asset-item>
       </a-assets>
-  
-      <a-entity animation="property: rotation; to: 0 360 0; loop: true; dur: 40000">
-        <a-entity gltf-model="#cup" 
-                  scale="0.06 0.06 0.06"
+
+      <a-entity  id='fishSet2' animation="property: rotation; to: 0 360 0; loop: true; dur: 25000; easing: easeInOutQuad;">
+        <a-entity obj-model="obj: #fish1-obj" 
+                  animation="property: rotation; loop:true; from: 0 -80 0; to: 0 -110 0; dir: alternate; easing: easeInOutSine;"
+                  material="src: assets/skins/fish-skin2.png;"
+                  scale="1 1 1"
                   position="0 1.6 -9"
                   rotation="0 -90 0">
         </a-entity>
       </a-entity>
       
-      <a-entity animation="property: rotation; to: 0 360 0; loop: true; dur: 30000">
-        <a-entity obj-model="obj: #fish-obj"
-                  material="src: assets/fish/fish-skin.jpg; color: #696969; roughness: 1; metalness: 0"
-                  scale=".01 .01 .01"
-                  position="0 1.2 -4"
-                  rotation="0 0 -90">
+      <a-entity id='fishSet1' animation="property: rotation; to: 0 360 0; loop: true; dur: 30000; easing: easeInOutQuad;">
+      <a-entity  animation="property: rotation; from: 0 0 0; to: 20 0 0; loop: true; dur: 5000; dir: alternate; easing: easeInOutSine;">
+        <a-entity obj-model="obj: #fish2-obj"
+                  animation="property: rotation; loop:true; from: 0 -80 0; to: 0 -110 0; dir: alternate; easing: easeInOutSine;"
+                  material="src: assets/skins/fish-skin.jpg;"
+                  scale="1 1 1"
+                  position="4  1.2 -4"
+                  rotation="0 -90 0">
         </a-entity>
       </a-entity>
+      </a-entity>
       
-        <a-entity animation="property: rotation; to: 0 360 0; loop: true; dur: 20000">
-        <a-entity obj-model="obj: #fish-obj"
-                  material="src: assets/fish/fish-skin2.png; color: #696969; roughness: 1; metalness: 0"
-                  scale=".01 .01 .01"
-                  position="10 1.42 -4.4"
-                  rotation="0 0 -90">
+      <a-entity id='fishSet3' animation="property: rotation; to: 0 360 0; loop: true; dur: 20000;  easing: easeInOutQuad;">
+        <a-entity obj-model="obj: #fish3-obj"
+                  scale="1 1 1"
+                  position="5 10 -10"
+                  rotation="0 -90 0">
+        </a-entity>
+      </a-entity>
+
+      <a-entity id='fishSet4' animation="property: rotation; from: 0 0 0; to: 0 -360 0; loop: true; dur: 20000;  easing: easeInOutQuad;">
+        <a-entity obj-model="obj: #fish3-obj"
+                  scale="1 1 1"
+                  position="5 10 -10"
+                  rotation="0 -90 0">
         </a-entity>
       </a-entity>
     
@@ -68,11 +77,11 @@
   </body>
     
     <script>
-      document.getElementById("angel").addEventListener("model-error",function(e) { console.log(e); })
+      //document.getElementById("angel").addEventListener("model-error",function(e) { console.log(e); })
 
       var video = document.querySelector("#videoElement");
 
-      if (navigator.mediaDevices.getUserMedia) {
+      if(navigator.mediaDevices.getUserMedia) {
         navigator.mediaDevices.getUserMedia({ video:  { facingMode: "environment" }})
         .then(function (stream) {
           video.srcObject = stream;
@@ -81,6 +90,56 @@
           console.log("Something went wrong!");
         });
       }
+
+      var schools = [];
+
+
+      var fishSet1 = document.getElementById("fishSet1")
+      var fishSet2 = document.getElementById("fishSet2")
+      var fishSet3 = document.getElementById("fishSet3")
+      var fishSet4 = document.getElementById("fishSet4")
+
+      var fishSets = [ fishSet1, fishSet2, fishSet3, fishSet4 ]
+
+      function createFish() {
+         var newEl = document.createElement("a-entity")
+         newEl.setAttribute('obj-model', 'obj: #fish2-obj')
+
+         var fishSet = Math.floor(rnd(0,4));
+
+         var randomScale = rnd(0.6,1.2 )
+         var randomPosX = rnd(-10,10)
+         var randomPosY = rnd(-10,10)
+         var randomPosZ = rnd(-20, -5)
+
+         var rotateStart = rnd(-80,-90)
+         var rotateEnd= rnd(-100,-90)
+         var length=rnd(500,1500)
+
+         if(fishSet == 3) {
+            rotateStart = -rotateStart;
+            rotateEnd =-rotateEnd;
+         }
+
+         var delay = rnd(0,600)
+
+         newEl.setAttribute('position', `${randomPosX} ${randomPosY} ${randomPosZ}`)
+         newEl.setAttribute('material', "src: assets/skins/fish-skin.jpg;")
+         newEl.setAttribute('rotation', `0 90 0`)
+         newEl.setAttribute('animation',`property: rotation; loop:true; from: 0 ${rotateStart} 0; to: 0 ${rotateEnd} 0; delay: ${delay}; dur: ${length}; dir: alternate; easing: easeInOutSine;`)
+
+        fishSets[fishSet].appendChild(newEl)
+      }
+
+
+      for(i=0;i<100;i++) {
+        createFish()
+      }
+
+      function rnd(min, max) {
+        return Math.random() * (max - min) + min;
+      }
+
     
     </script>
 </html>

@@ -15,11 +15,9 @@ AFRAME.registerComponent('make-bubbles', {
         feedbackTarget: {type : 'selector', default : ""}
     },
     init: function () {
-        document.addEventListener('touchstart', this.makeBubble)
-        document.addEventListener('click', this.makeBubble)
+        setTimeout(this.makeBubble, 500);
     },
     makeBubble : function () {
-        var target = document.getElementById('bubbleFeedback')
 
         var bubbleAmount = 3
 
@@ -53,12 +51,7 @@ AFRAME.registerComponent('make-bubbles', {
 
         // console.log('%c ' +'Bubble is: ' + scale, 'color: #2EAFAC');
 
-        target.setAttribute('color', '#BEE')
-        setTimeout( function () {
-            target.setAttribute('color', '#2EAFAC')
-        }
-            , 250)
-
+        setTimeout(this.makeBubble, Math.random() * 2000);
         // TODO make the plane have an animation-start trigger that flashes its opacity real quick :)
         // Then take a video of it from the iPhone and post to FB & Twitter & Slack! :)
     },

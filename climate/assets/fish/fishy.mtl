@@ -1,8 +1,0 @@
-newmtl Cone material_3bffae25-dcf3-47a7-98fc-1ba0c74462c7
-Kd 1.000 1.000 1.000
-d 1.000
-map_Kd .\fish-skin.jpg
-newmtl Sphere material_21c5ff12-f41a-418a-aa63-8455bd0b394e
-Kd 1.000 1.000 1.000
-d 1.000
-map_Kd .\fish-skin.jpg
