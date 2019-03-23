@@ -16,7 +16,7 @@
   </head>
     <body style="margin : 0px; overflow: hidden;">
     <video playsinline autoplay loop muted id="videoElement"></video>
-    <a-scene gltf-model="dracoDecoderPath: draco_decoder.js;" background="transparent:true">
+    <a-scene gltf-model="dracoDecoderPath: draco_decoder.js;" background="transparent:true; ">
 
       <a-assets>
         <a-asset-item id="cup" src="assets/starbucks_paper_cup/scene.gltf"></a-asset-item>
@@ -57,7 +57,7 @@
       var video = document.querySelector("#videoElement");
 
       if (navigator.mediaDevices.getUserMedia) {
-        navigator.mediaDevices.getUserMedia({ video: true })
+        navigator.mediaDevices.getUserMedia({ video:  { facingMode: { exact: "environment" } }})
         .then(function (stream) {
           video.srcObject = stream;
         })
