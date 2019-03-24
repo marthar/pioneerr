@@ -1,0 +1,13 @@
+# Blender MTL File: 'None'
+# Material Count: 1
+
+newmtl Tube_material_2_6f18826f-7790-4feb-8673-f6a91d5f3fda
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd /Users/pascalrettig/Downloads/cup/127c513e-9714-423c-9b10-72be62fc7cee.jpg

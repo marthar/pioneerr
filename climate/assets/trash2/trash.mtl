@@ -1,0 +1,13 @@
+# Blender MTL File: 'Trash2-noodle.blend'
+# Material Count: 1
+
+newmtl Zig_Zag_Shapes_Gray_Dot_8493691c-1bc0-47d1-b6c1-f051e6f9e5ad
+Ns 96.078431
+Ka 1.000000 1.000000 1.000000
+Kd 0.871000 0.871000 0.871000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd /Users/pascalrettig/Downloads/noodle (1)/6f161fec-682b-4ba2-af15-8816f38a58a0.jpg

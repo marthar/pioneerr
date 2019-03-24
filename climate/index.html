@@ -26,16 +26,20 @@
     <body style="margin : 0px; overflow: hidden;">
     <video playsinline autoplay loop muted id="videoElement"></video>
     <div class='cover'></div>
-    <a-scene gltf-model="dracoDecoderPath: draco_decoder.js;" background="transparent:true" fog="type: exponential; density: 0.08; color: blue; near:0; ">
+    <a-scene gltf-model="dracoDecoderPath: draco_decoder.js;" background="transparent:true" fog="type: exponential; density: 0.03; color: blue; near:0; ">
 
       <a-assets>
 
          <a-asset-item id="fish1-obj" src="assets/fish3/fish.obj"></a-asset-item>
          <a-asset-item id="fish2-obj" src="assets/fish4/fish.obj"></a-asset-item>
          <a-asset-item id="fish3-obj" src="assets/fish5/fish.obj"></a-asset-item>
+         <a-asset-item id="trash1-obj" src="assets/trash1/trash.obj"></a-asset-item>
+         <a-asset-item id="trash2-obj" src="assets/trash2/trash.obj"></a-asset-item>
       </a-assets>
 
-      <a-entity  id='fishSet2' animation="property: rotation; to: 0 360 0; loop: true; dur: 25000; easing: easeInOutQuad;">
+
+
+      <!-- <a-entity  id='fishSet2' animation="property: rotation; to: 0 360 0; loop: true; dur: 25000; easing: easeInOutQuad;">
         <a-entity obj-model="obj: #fish1-obj" 
                   animation="property: rotation; loop:true; from: 0 -80 0; to: 0 -110 0; dir: alternate; easing: easeInOutSine;"
                   material="src: assets/skins/fish-skin2.png;"
@@ -71,7 +75,7 @@
                   position="5 10 -10"
                   rotation="0 -90 0">
         </a-entity>
-      </a-entity>
+      </a-entity> -->
     
     </a-scene>
   </body>
@@ -91,34 +95,101 @@
         });
       }
 
-      var schools = [];
+
+      var REVERSE_CHANGE = 0.5; // 0.5 == 50%;
+      var TRASH_SET = 0.2 // 0.2 == 20%
 
 
-      var fishSet1 = document.getElementById("fishSet1")
-      var fishSet2 = document.getElementById("fishSet2")
-      var fishSet3 = document.getElementById("fishSet3")
-      var fishSet4 = document.getElementById("fishSet4")
+      var SETS = 40; // Total number of sets to create
+      var FISH_COUNT = 150; // Total number of fish to create
 
-      var fishSets = [ fishSet1, fishSet2, fishSet3, fishSet4 ]
+
+      function createFishSet() {
+         var fishSetWrapper = document.createElement("a-entity")
+         var fishSet = document.createElement("a-entity")
+
+         var rotateStart = rnd(0,360)
+         var length = rnd(20000,60000)
+         var delay=rnd(0,3000)
+
+         var reverse = Math.random() < REVERSE_CHANGE;
+         var trash = Math.random() < TRASH_SET;
+
+         fishSet.setAttribute("data-reverse",reverse ? 'true' : 'false')
+         fishSet.setAttribute("data-trash",trash ? 'true' : 'false')
+
+         fishSet.setAttribute('rotation','0 ${rotateStart} 0')
+         fishSet.setAttribute('animation',
+          `property: rotation; loop:true; from: 0 ${rotateStart} 0; to: 0 ${rotateStart+(reverse ? -360 : 360)} 0; delay: ${delay}; dur: ${length}; loop:true; easing: easeInOutQuad;`)
+
+         var wiggle = rnd(0,5)
+         var wiggleDur= rnd(5000,10000)
+
+         fishSetWrapper.setAttribute('animation',
+          `property: rotation; from: 0 0 0; to: ${wiggle} 0 0; loop: true; dur: ${wiggleDur}; dir: alternate; easing: easeInOutSine;`)
+
+         fishSetWrapper.appendChild(fishSet)
+         AFRAME.scenes[0].appendChild(fishSetWrapper)
+
+         return fishSet;
+      }
+
+      var fishSets = [];
+
+      var fishList = [
+        { model: "obj: #fish1-obj" },
+        { model: "obj: #fish2-obj" },
+        { model: "obj: #fish3-obj" },
+      ]
+
+      var trashList = [
+        { model: "obj: #trash1-obj" },
+        { model: "obj: #trash2-obj" }
+      ]
+
 
       function createFish() {
          var newEl = document.createElement("a-entity")
-         newEl.setAttribute('obj-model', 'obj: #fish2-obj')
 
-         var fishSet = Math.floor(rnd(0,4));
+         var fishSetIdx = Math.floor(rnd(0,fishSets.length));
+         var fishSet = fishSets[fishSetIdx];
+
+
+         var isTrash = fishSet.getAttribute('data-trash') == 'true' 
+
+         var objList = fishList
+         if(isTrash) { 
+            objList = trashList;
+         }
+
+         var fish = objList[Math.floor(rnd(0,objList.length))]
+
+         newEl.setAttribute('obj-model', fish.model)
+
 
          var randomScale = rnd(0.6,1.2 )
          var randomPosX = rnd(-10,10)
-         var randomPosY = rnd(-10,10)
-         var randomPosZ = rnd(-20, -5)
+         var randomPosY = rnd(-15,15)
+         var randomPosZ = rnd(-25, -10)
 
          var rotateStart = rnd(-80,-90)
          var rotateEnd= rnd(-100,-90)
          var length=rnd(500,1500)
 
-         if(fishSet == 3) {
+         if(fishSet.getAttribute('data-reverse') == 'true') { 
             rotateStart = -rotateStart;
             rotateEnd =-rotateEnd;
+         }
+
+         rotateStart = `0 ${rotateStart} 0`
+         rotateEnd = `0 ${rotateEnd} 0`
+
+         if(isTrash) {
+           rotateStart = rnd(0,360)
+           rotateEnd = rotateStart + 360;
+           rotateStart = `${rotateStart} ${rotateStart} ${rotateStart}`
+           rotateEnd = `${rotateEnd} ${rotateEnd} ${rotateEnd}`
+           length=rnd(10000,20000)
          }
 
          var delay = rnd(0,600)
@@ -126,15 +197,21 @@
          newEl.setAttribute('position', `${randomPosX} ${randomPosY} ${randomPosZ}`)
          newEl.setAttribute('material', "src: assets/skins/fish-skin.jpg;")
          newEl.setAttribute('rotation', `0 90 0`)
-         newEl.setAttribute('animation',`property: rotation; loop:true; from: 0 ${rotateStart} 0; to: 0 ${rotateEnd} 0; delay: ${delay}; dur: ${length}; dir: alternate; easing: easeInOutSine;`)
+         newEl.setAttribute('animation',`property: rotation; loop:true; from: ${rotateStart}; to:${rotateEnd}; delay: ${delay}; dur: ${length}; dir: ${isTrash ? 'normal' : 'alternate'}; easing: easeInOutSine;`)
 
-        fishSets[fishSet].appendChild(newEl)
+        fishSet.appendChild(newEl)
       }
 
 
-      for(i=0;i<100;i++) {
-        createFish()
-      }
+      window.addEventListener("load", function() {
+        for(var i = 0;i < SETS;i++) {
+          fishSets.push(createFishSet())
+        }
+
+        for(var j=0;j<FISH_COUNT;j++) {
+          createFish()
+        }
+      })
 
       function rnd(min, max) {
         return Math.random() * (max - min) + min;
