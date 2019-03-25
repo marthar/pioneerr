@@ -1,0 +1,8 @@
+newmtl Cone material 2_6df93c2b-81e1-414c-8992-2d8172402335
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd .\dd0e7220-e188-4c57-adef-2cf442d6c08f.png
+newmtl Sphere material 1_23bb5e33-38dc-4b52-81d6-793b4389e4cc
+Kd 1.000 1.000 1.000
+d 1.000
+map_Kd .\dd0e7220-e188-4c57-adef-2cf442d6c08f.png

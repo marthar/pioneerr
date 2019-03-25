@@ -18,7 +18,7 @@
         height:100%;
         opacity:0.5;
         position:absolute;
-        background-color:#000055;
+        background-color:#06c1b0;
       }
     </style>
 
@@ -26,56 +26,19 @@
     <body style="margin : 0px; overflow: hidden;">
     <video playsinline autoplay loop muted id="videoElement"></video>
     <div class='cover'></div>
-    <a-scene gltf-model="dracoDecoderPath: draco_decoder.js;" background="transparent:true" fog="type: exponential; density: 0.03; color: blue; near:0; ">
+    <a-scene id='sceneElement' gltf-model="dracoDecoderPath: draco_decoder.js;" background="transparent:true" fog="type: exponential; density: 0.03; color: #06c1b0; near:0; ">
 
       <a-assets>
-
-         <a-asset-item id="fish1-obj" src="assets/fish3/fish.obj"></a-asset-item>
-         <a-asset-item id="fish2-obj" src="assets/fish4/fish.obj"></a-asset-item>
-         <a-asset-item id="fish3-obj" src="assets/fish5/fish.obj"></a-asset-item>
-         <a-asset-item id="trash1-obj" src="assets/trash1/trash.obj"></a-asset-item>
-         <a-asset-item id="trash2-obj" src="assets/trash2/trash.obj"></a-asset-item>
+         <a-asset-item id="fish1-obj"  src="assets/fish1/Mesh_Goldfish.obj"></a-asset-item>
+         <a-asset-item id="fish2-obj"  src="assets/fish5/fish.obj"></a-asset-item>
+         <a-asset-item id="fish3-obj"  src="assets/fish2/Mesh_Fish.obj"></a-asset-item>
+          <a-asset-item id="fish4-obj"  src="assets/fish1/Mesh_Goldfish.obj"></a-asset-item>
+         <a-asset-item id="trash1-obj" src="assets/bag/bag.obj"></a-asset-item>
+         <a-asset-item id="trash2-obj" src="assets/blobthree/ProjectName.obj"></a-asset-item>
+         <a-asset-item id="trash3-obj" src="assets/cup/cup.obj"></a-asset-item>
+         <a-asset-item id="trash4-obj" src="assets/sqiuggle/trash.obj"></a-asset-item> 
+         <a-asset-item id="trash5-obj" src="assets/soda-rings/soda-rings.obj"></a-asset-item> 
       </a-assets>
-
-
-
-      <!-- <a-entity  id='fishSet2' animation="property: rotation; to: 0 360 0; loop: true; dur: 25000; easing: easeInOutQuad;">
-        <a-entity obj-model="obj: #fish1-obj" 
-                  animation="property: rotation; loop:true; from: 0 -80 0; to: 0 -110 0; dir: alternate; easing: easeInOutSine;"
-                  material="src: assets/skins/fish-skin2.png;"
-                  scale="1 1 1"
-                  position="0 1.6 -9"
-                  rotation="0 -90 0">
-        </a-entity>
-      </a-entity>
-      
-      <a-entity id='fishSet1' animation="property: rotation; to: 0 360 0; loop: true; dur: 30000; easing: easeInOutQuad;">
-      <a-entity  animation="property: rotation; from: 0 0 0; to: 20 0 0; loop: true; dur: 5000; dir: alternate; easing: easeInOutSine;">
-        <a-entity obj-model="obj: #fish2-obj"
-                  animation="property: rotation; loop:true; from: 0 -80 0; to: 0 -110 0; dir: alternate; easing: easeInOutSine;"
-                  material="src: assets/skins/fish-skin.jpg;"
-                  scale="1 1 1"
-                  position="4  1.2 -4"
-                  rotation="0 -90 0">
-        </a-entity>
-      </a-entity>
-      </a-entity>
-      
-      <a-entity id='fishSet3' animation="property: rotation; to: 0 360 0; loop: true; dur: 20000;  easing: easeInOutQuad;">
-        <a-entity obj-model="obj: #fish3-obj"
-                  scale="1 1 1"
-                  position="5 10 -10"
-                  rotation="0 -90 0">
-        </a-entity>
-      </a-entity>
-
-      <a-entity id='fishSet4' animation="property: rotation; from: 0 0 0; to: 0 -360 0; loop: true; dur: 20000;  easing: easeInOutQuad;">
-        <a-entity obj-model="obj: #fish3-obj"
-                  scale="1 1 1"
-                  position="5 10 -10"
-                  rotation="0 -90 0">
-        </a-entity>
-      </a-entity> -->
     
     </a-scene>
   </body>
@@ -85,7 +48,7 @@
 
       var video = document.querySelector("#videoElement");
 
-      if(navigator.mediaDevices.getUserMedia) {
+      if(!navigator.mediaDevices.getUserMedia) {
         navigator.mediaDevices.getUserMedia({ video:  { facingMode: "environment" }})
         .then(function (stream) {
           video.srcObject = stream;
@@ -96,12 +59,12 @@
       }
 
 
-      var REVERSE_CHANGE = 0.5; // 0.5 == 50%;
-      var TRASH_SET = 0.2 // 0.2 == 20%
+      var REVERSE_CHANCE = 0.5; // 0.5 == 50%;
+      var TRASH_SET = 0.1 // 0.2 == 20%
 
 
-      var SETS = 40; // Total number of sets to create
-      var FISH_COUNT = 150; // Total number of fish to create
+      var SETS = 40; // Total number of sets to create sets are circling and movement
+      var FISH_COUNT = 150; // Total number of things to create
 
 
       function createFishSet() {
@@ -112,7 +75,7 @@
          var length = rnd(20000,60000)
          var delay=rnd(0,3000)
 
-         var reverse = Math.random() < REVERSE_CHANGE;
+         var reverse = Math.random() < REVERSE_CHANCE;
          var trash = Math.random() < TRASH_SET;
 
          fishSet.setAttribute("data-reverse",reverse ? 'true' : 'false')
@@ -129,7 +92,7 @@
           `property: rotation; from: 0 0 0; to: ${wiggle} 0 0; loop: true; dur: ${wiggleDur}; dir: alternate; easing: easeInOutSine;`)
 
          fishSetWrapper.appendChild(fishSet)
-         AFRAME.scenes[0].appendChild(fishSetWrapper)
+         document.getElementById("sceneElement").appendChild(fishSetWrapper)
 
          return fishSet;
       }
@@ -137,14 +100,18 @@
       var fishSets = [];
 
       var fishList = [
-        { model: "obj: #fish1-obj" },
-        { model: "obj: #fish2-obj" },
-        { model: "obj: #fish3-obj" },
+        { model: "obj: #fish1-obj", scale: .03, textures: [ 'fish-skin1.png' ] },
+        { model: "obj: #fish2-obj", scale: 1, textures: [ 'fish-skin2.png', 'fish-skin1.png'   ]  },
+        { model: "obj: #fish3-obj", scale: .03, textures: [ 'fish-skin3.jpg' ]  },
+        { model: "obj: #fish4-obj", scale: .03, textures: [ 'fish-skin3.jpg'   ]  }
       ]
 
       var trashList = [
-        { model: "obj: #trash1-obj" },
-        { model: "obj: #trash2-obj" }
+        { model: "obj: #trash1-obj", scale: 0.02, textures: [ 'trash.jpg' ]  },
+        { model: "obj: #trash2-obj", scale: 0.02, textures: [ 'trash2.png', 'trash.jpg']  },
+        { model: "obj: #trash3-obj", scale: 0.02, textures: [ 'trash2.png' ]  },  
+        { model: "obj: #trash4-obj", scale: 1, textures: [ 'trash3.jpg' ]  },
+        { model: "obj: #trash5-obj", scale: 0.02, textures: [ 'trash.jpg' ]  }
       ]
 
 
@@ -167,19 +134,19 @@
          newEl.setAttribute('obj-model', fish.model)
 
 
-         var randomScale = rnd(0.6,1.2 )
-         var randomPosX = rnd(-10,10)
-         var randomPosY = rnd(-15,15)
-         var randomPosZ = rnd(-25, -10)
+         var randomScale = 1; // rnd(0.6,1.2 ) // how small, how big
+         var randomPosX = rnd(-10,10)  // wide in front of you
+         var randomPosY = rnd(-15,15)  // high in front of you
+         var randomPosZ = rnd(-25, -5) // close to far from you
 
-         var rotateStart = rnd(-80,-90)
-         var rotateEnd= rnd(-100,-90)
-         var length=rnd(500,1500)
+         var rotateStart = rnd(-80,-90)  // fish wiggle
+         var rotateEnd= rnd(-100,-90) // end wiggle
+         var length=rnd(500,1500)  // wiggle length
 
          if(fishSet.getAttribute('data-reverse') == 'true') { 
             rotateStart = -rotateStart;
             rotateEnd =-rotateEnd;
-         }
+         }   // this makes reverse fish point in the right direction
 
          rotateStart = `0 ${rotateStart} 0`
          rotateEnd = `0 ${rotateEnd} 0`
@@ -190,12 +157,18 @@
            rotateStart = `${rotateStart} ${rotateStart} ${rotateStart}`
            rotateEnd = `${rotateEnd} ${rotateEnd} ${rotateEnd}`
            length=rnd(10000,20000)
-         }
+         }  // tumbling trash
 
-         var delay = rnd(0,600)
+         var delay = rnd(0,600)  // fish wiggle wait
+         
+         var scale = fish.scale;
+          
+         // Pick a random texture from the list
+         var texture = fish.textures[Math.floor(rnd(0,fish.textures.length))];
 
+         newEl.setAttribute('scale',`${scale} ${scale} ${scale}`)
          newEl.setAttribute('position', `${randomPosX} ${randomPosY} ${randomPosZ}`)
-         newEl.setAttribute('material', "src: assets/skins/fish-skin.jpg;")
+         newEl.setAttribute('material', `src: assets/skins/${texture};`)
          newEl.setAttribute('rotation', `0 90 0`)
          newEl.setAttribute('animation',`property: rotation; loop:true; from: ${rotateStart}; to:${rotateEnd}; delay: ${delay}; dur: ${length}; dir: ${isTrash ? 'normal' : 'alternate'}; easing: easeInOutSine;`)
 
