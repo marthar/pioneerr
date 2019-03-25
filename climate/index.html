@@ -29,7 +29,7 @@
     <a-scene id='sceneElement' gltf-model="dracoDecoderPath: draco_decoder.js;" background="transparent:true" fog="type: exponential; density: 0.03; color: #06c1b0; near:0; ">
 
       <a-assets>
-         <a-asset-item id="fish1-obj"  src="assets/fish1/Mesh_Goldfish.obj"></a-asset-item>
+         <a-asset-item id="fish1-obj"  src="assets/fish2/Mesh_Fish.obj"></a-asset-item>
          <a-asset-item id="fish2-obj"  src="assets/fish5/fish.obj"></a-asset-item>
          <a-asset-item id="fish3-obj"  src="assets/fish2/Mesh_Fish.obj"></a-asset-item>
           <a-asset-item id="fish4-obj"  src="assets/fish1/Mesh_Goldfish.obj"></a-asset-item>
@@ -48,7 +48,7 @@
 
       var video = document.querySelector("#videoElement");
 
-      if(!navigator.mediaDevices.getUserMedia) {
+      if(navigator.mediaDevices.getUserMedia) {
         navigator.mediaDevices.getUserMedia({ video:  { facingMode: "environment" }})
         .then(function (stream) {
           video.srcObject = stream;
