@@ -31,13 +31,27 @@
       <a-assets>
          <a-asset-item id="fish1-obj"  src="assets/fish2/Mesh_Fish.obj"></a-asset-item>
          <a-asset-item id="fish2-obj"  src="assets/fish5/fish.obj"></a-asset-item>
-         <a-asset-item id="fish3-obj"  src="assets/fish2/Mesh_Fish.obj"></a-asset-item>
-          <a-asset-item id="fish4-obj"  src="assets/fish1/Mesh_Goldfish.obj"></a-asset-item>
-         <a-asset-item id="trash1-obj" src="assets/bag/bag.obj"></a-asset-item>
-         <a-asset-item id="trash2-obj" src="assets/blobthree/ProjectName.obj"></a-asset-item>
-         <a-asset-item id="trash3-obj" src="assets/cup/cup.obj"></a-asset-item>
-         <a-asset-item id="trash4-obj" src="assets/sqiuggle/trash.obj"></a-asset-item> 
-         <a-asset-item id="trash5-obj" src="assets/soda-rings/soda-rings.obj"></a-asset-item> 
+         <a-asset-item id="fish3-obj"  src="assets/fishy/fishy.obj"></a-asset-item>
+         <a-asset-item id="fish4-obj"  src="assets/whale/whale.obj"></a-asset-item>
+         <a-asset-item id="fish5-obj"  src="assets/turtle-ring/turtle-ring.obj"></a-asset-item>
+         <a-asset-item id="fish6-obj"  src="assets/condom-jellyfish/condom-jellyfish.obj"></a-asset-item>
+         <a-asset-item id="fish7-obj"  src="assets/milk-shark-mutation/milk-shark-mutation.obj"></a-asset-item>
+         <a-asset-item id="fish8-obj"  src="assets/halibut/halibut.obj"></a-asset-item>
+         <a-asset-item id="fish9-obj"  src="assets/fish3/fish.obj"></a-asset-item>
+         <a-asset-item id="fish10-obj"  src="assets/fish4/fish.obj"></a-asset-item>  
+         <a-asset-item id="trash1-obj" src="assets/cap/cap.obj"></a-asset-item>  
+         <a-asset-item id="trash2-obj" src="assets/bag/bag.obj"></a-asset-item>
+         <a-asset-item id="trash4-obj" src="assets/straw/straw.obj"></a-asset-item>
+         <a-asset-item id="trash3-obj" src="assets/trash/trash.obj"></a-asset-item>
+         <a-asset-item id="trash5-obj" src="assets/sqiuggle/trash.obj"></a-asset-item> 
+         <a-asset-item id="trash6-obj" src="assets/tampon/tampon.obj"></a-asset-item>
+         <a-asset-item id="trash7-obj" src="assets/straw/straw.obj"></a-asset-item>
+         <a-asset-item id="trash8-obj" src="assets/soda/soda.obj"></a-asset-item>  
+         <a-asset-item id="trash9-obj" src="assets/cup-straw/cup-straw.obj"></a-asset-item>
+         <a-asset-item id="trash10-obj" src="assets/fork/fork.obj"></a-asset-item>
+         <a-asset-item id="trash11-obj" src="assets/plastic-straw-bag/plastic-straw-bag.obj"></a-asset-item>
+         <a-asset-item id="trash12-obj" src="assets/solo-cup/solo-cup.obj"></a-asset-item>
+         <a-asset-item id="trash13-obj" src="assets/trash-bag/trash-bag.obj"></a-asset-item>
       </a-assets>
     
     </a-scene>
@@ -60,11 +74,16 @@
 
 
       var REVERSE_CHANCE = 0.5; // 0.5 == 50%;
-      var TRASH_SET = 0.1 // 0.2 == 20%
+      var TRASH_SET = 0.2 // 0.2 == 20%
 
 
       var SETS = 40; // Total number of sets to create sets are circling and movement
-      var FISH_COUNT = 150; // Total number of things to create
+      var FISH_COUNT = 100; // Total number of things to create
+      var TRASH_COUNT = 200; // Total eventual number of trash
+      var TRASH_DELAY = 500; // Wait between adding pieces of trash (ms)
+        
+      var onlyFishSets =[];
+      var onlyTrashSets = []
 
 
       function createFishSet() {
@@ -94,35 +113,69 @@
          fishSetWrapper.appendChild(fishSet)
          document.getElementById("sceneElement").appendChild(fishSetWrapper)
 
+         if(trash) {
+            onlyFishSets.push(fishSet)
+         } else { 
+            onlyTrashSets.push(fishSet)
+         }
          return fishSet;
       }
 
       var fishSets = [];
 
       var fishList = [
-        { model: "obj: #fish1-obj", scale: .03, textures: [ 'fish-skin1.png' ] },
-        { model: "obj: #fish2-obj", scale: 1, textures: [ 'fish-skin2.png', 'fish-skin1.png'   ]  },
-        { model: "obj: #fish3-obj", scale: .03, textures: [ 'fish-skin3.jpg' ]  },
-        { model: "obj: #fish4-obj", scale: .03, textures: [ 'fish-skin3.jpg'   ]  }
+        { model: "obj: #fish1-obj", scale: .02, textures: [ 'blue-default2.jpg' ] },
+        { model: "obj: #fish2-obj", scale: 0.02, textures: [ 'blue-default2.jpg', 'blue-default1.jpg'   ]  },
+        { model: "obj: #fish1-obj", scale: .02, textures: [ 'blue-default2.jpg' ] },
+        { model: "obj: #fish2-obj", scale: 0.02, textures: [ 'blue-default2.jpg', 'blue-default1.jpg'   ]  },  
+        { model: "obj: #fish3-obj", scale: .015, textures: [ 'blue-default2.jpg' ]  },
+        { model: "obj: #fish4-obj", scale: .1, textures: [ 'blue-default2.jpg'   ]  },
+        { model: "obj: #fish5-obj", scale: .03, textures: [ 'blue-default2.jpg'  ]  }, 
+        { model: "obj: #fish6-obj", scale: .02, textures: [ 'blue-default2.jpg'  ]  },
+        { model: "obj: #fish6-obj", scale: .02, textures: [ 'blue-default2.jpg'  ]  },  
+        { model: "obj: #fish7-obj", scale: .015, textures: [ 'blue-default2.jpg'  ]  },
+        { model: "obj: #fish8-obj", scale: .02, textures: [ 'blue-default2.jpg'  ]  },
+        { model: "obj: #fish8-obj", scale: .02, textures: [ 'blue-default2.jpg'  ]  },  
+        { model: "obj: #fish9-obj", scale: .02, textures: [ 'blue-default2.jpg'  ]  },
+        { model: "obj: #fish9-obj", scale: .02, textures: [ 'blue-default2.jpg'  ]  },
+        { model: "obj: #fish10-obj", scale: .02, textures: [ 'blue-default2.jpg'  ]  },
+        { model: "obj: #fish10-obj", scale: .02, textures: [ 'blue-default2.jpg'  ]  },
+        { model: "obj: #fish8-obj", scale: .02, textures: [ 'blue-default2.jpg'  ]  },
+        { model: "obj: #fish8-obj", scale: .02, textures: [ 'blue-default2.jpg'  ]  },  
+        { model: "obj: #fish9-obj", scale: .02, textures: [ 'blue-default2.jpg'  ]  },
+        { model: "obj: #fish9-obj", scale: .02, textures: [ 'blue-default2.jpg'  ]  },
+        { model: "obj: #fish10-obj", scale: .02, textures: [ 'blue-default2.jpg'  ]  },
+        { model: "obj: #fish10-obj", scale: .02, textures: [ 'blue-default2.jpg'  ]  }  
       ]
 
       var trashList = [
-        { model: "obj: #trash1-obj", scale: 0.02, textures: [ 'trash.jpg' ]  },
-        { model: "obj: #trash2-obj", scale: 0.02, textures: [ 'trash2.png', 'trash.jpg']  },
-        { model: "obj: #trash3-obj", scale: 0.02, textures: [ 'trash2.png' ]  },  
-        { model: "obj: #trash4-obj", scale: 1, textures: [ 'trash3.jpg' ]  },
-        { model: "obj: #trash5-obj", scale: 0.02, textures: [ 'trash.jpg' ]  }
+        { model: "obj: #trash1-obj", scale: 0.03, textures: [ 'gray-default1.jpg' ]  },
+        { model: "obj: #trash2-obj", scale: 0.02, textures: [ 'gray-default1.jpg', 'gray-default2.jpg']  },
+        { model: "obj: #trash3-obj", scale: 0.015, textures: [ 'gray-default1.jpg' ]  },  
+        { model: "obj: #trash4-obj", scale: 0.03, textures: [ 'gray-default2.jpg' ]  },
+        { model: "obj: #trash4-obj", scale: 0.03, textures: [ 'gray-default2.jpg' ]  },
+        { model: "obj: #trash4-obj", scale: 0.03, textures: [ 'gray-default2.jpg' ]  },
+        { model: "obj: #trash5-obj", scale: 0.02, textures: [ 'gray-default1.jpg' ]  },
+        { model: "obj: #trash6-obj", scale: 0.02, textures: [ 'gray-default2.jpg' ]  }, 
+        { model: "obj: #trash7-obj", scale: 0.02, textures: [ 'gray-default1.jpg' ]  },
+        { model: "obj: #trash8-obj", scale: 0.02, textures: [ 'gray-default1.jpg' ]  },
+        { model: "obj: #trash9-obj", scale: 0.02, textures: [ 'gray-default2.jpg' ]  },
+        { model: "obj: #trash10-obj", scale: 0.02, textures: [ 'gray-default1.jpg' ]  },
+        { model: "obj: #trash11-obj", scale: 0.02, textures: [ 'gray-default2.jpg' ]  },
+        { model: "obj: #trash12-obj", scale: 0.02, textures: [ 'gray-default2.jpg' ]  },
+        { model: "obj: #trash13-obj", scale: 0.02, textures: [ 'gray-default2.jpg' ]  }   
       ]
 
 
-      function createFish() {
+      function createFish(isTrash) {
          var newEl = document.createElement("a-entity")
 
-         var fishSetIdx = Math.floor(rnd(0,fishSets.length));
-         var fishSet = fishSets[fishSetIdx];
+         var sets = isTrash ? onlyTrashSets : onlyFishSets
+         
+         var fishSetIdx = Math.floor(rnd(0,sets.length));
+         var fishSet = sets[fishSetIdx];
 
-
-         var isTrash = fishSet.getAttribute('data-trash') == 'true' 
+         //var isTrash = fishSet.getAttribute('data-trash') == 'true' 
 
          var objList = fishList
          if(isTrash) { 
@@ -137,7 +190,7 @@
          var randomScale = 1; // rnd(0.6,1.2 ) // how small, how big
          var randomPosX = rnd(-10,10)  // wide in front of you
          var randomPosY = rnd(-15,15)  // high in front of you
-         var randomPosZ = rnd(-25, -5) // close to far from you
+         var randomPosZ = rnd(-15, -5) // close to far from you
 
          var rotateStart = rnd(-80,-90)  // fish wiggle
          var rotateEnd= rnd(-100,-90) // end wiggle
@@ -150,17 +203,19 @@
 
          rotateStart = `0 ${rotateStart} 0`
          rotateEnd = `0 ${rotateEnd} 0`
+         var delay = rnd(0,600)  // fish wiggle wait
+         
 
+         
          if(isTrash) {
            rotateStart = rnd(0,360)
            rotateEnd = rotateStart + 360;
            rotateStart = `${rotateStart} ${rotateStart} ${rotateStart}`
            rotateEnd = `${rotateEnd} ${rotateEnd} ${rotateEnd}`
            length=rnd(10000,20000)
+           delay = 0;
          }  // tumbling trash
 
-         var delay = rnd(0,600)  // fish wiggle wait
-         
          var scale = fish.scale;
           
          // Pick a random texture from the list
@@ -169,8 +224,15 @@
          newEl.setAttribute('scale',`${scale} ${scale} ${scale}`)
          newEl.setAttribute('position', `${randomPosX} ${randomPosY} ${randomPosZ}`)
          newEl.setAttribute('material', `src: assets/skins/${texture};`)
-         newEl.setAttribute('rotation', `0 90 0`)
+         newEl.setAttribute('rotation', rotateStart)
          newEl.setAttribute('animation',`property: rotation; loop:true; from: ${rotateStart}; to:${rotateEnd}; delay: ${delay}; dur: ${length}; dir: ${isTrash ? 'normal' : 'alternate'}; easing: easeInOutSine;`)
+          
+         if(isTrash) {
+           newEl.setAttribute("transparent",true)
+           newEl.setAttribute('animation__trash',`property: material.opacity; loop:false; from: 0; to:100; delay: 0; dur: ${length}; easing: easeInOutSine;`)
+             
+         }
+
 
         fishSet.appendChild(newEl)
       }
@@ -182,7 +244,13 @@
         }
 
         for(var j=0;j<FISH_COUNT;j++) {
-          createFish()
+          createFish(false)
+        }
+
+        for(var j=0;j<TRASH_COUNT;j++) {
+          setTimeout(function() { 
+          createFish(true)
+          },j * TRASH_DELAY)
         }
       })
 
