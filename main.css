@@ -7,11 +7,15 @@ body {
 
 }
 
+video {
+    padding-top: 1em;
+}
+
 h1, h2, h3, h4, h5, h6 {
     font-family: "acumin-pro-wide";
     font-weight: 500;
     letter-spacing: .1em;
-    line-height: 1.1em;
+    line-height: 1.3em;
 }
 
 h3, h4, h5, h6 {
@@ -43,7 +47,7 @@ h1 {
 }
 
 h2 {
-    font-family: "acumin-pro";
+    font-family: "acumin-pro-wide";
     margin:1em 0 .25em 0;
     font-size:1.5em;
 
@@ -52,15 +56,22 @@ h2 {
 
 h3 {
     font-size:1em;
-    line-height:1.5em;
+    line-height:1.65em;
     margin:0 0 .5em 0;
 }
 
+#learn {
+     max-width: 90%;
+}
+
+#work {
+    max-width: 90%;
+}
 #about h3  {    
     font-size: 1em;
     line-height: 1.65em;
     margin-top: .5em;
-    max-width: 500px;
+    max-width: 90%;
 }
 
 h4  { font-family: "acumin-pro";}
@@ -166,7 +177,7 @@ section {
     }
 
 
-.box img { width:100%;}
+.box img { width:100%; padding-top: .5em;}
 .box video {width:100%;}
 .box h2 { margin-top:1em; margin-bottom: -.4em; }
 .box .media { display:flex; align-items:center;}
@@ -210,6 +221,7 @@ section {
 .i {
      grid-column: span 2;
  }
+
 
 @media all and (max-width: 550px) {
     body {  font-size:16px; margin:1% 10%;}

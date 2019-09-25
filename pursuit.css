@@ -10,7 +10,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: "acumin-pro-wide";
     font-weight: 500;
-    letter-spacing: .1em;
+    letter-spacing: .09em;
     line-height: 1.1em;
 }
 
@@ -144,6 +144,18 @@ nav li {
 }
 
 .pursuit .poster {
+    width: 15%;
+    margin: 1% 1% 0 1%;
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+}
+
+.pursuit .poster40 {
+    width: 40%;
+    margin: 1% 1% 0 1%;
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+}
+
+.pursuit .poster30 {
     width: 30%;
     margin: 1% 1% 0 1%;
     box-shadow: 0 0 10px rgba(0,0,0,.2);
