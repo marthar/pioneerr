@@ -169,7 +169,7 @@ section {
     }
 
 
-.box img { width:100%; padding-top: .5em;}
+.box img { width:100%; padding-top: 1em; padding-bottom: .5em}
 .box video {width:100%;}
 .box h2 { margin-top:1em; margin-bottom: -.4em; }
 .box .media { display:flex; align-items:center;}
