@@ -18,8 +18,11 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.3em;
 }
 
+
+
 h3, h4, h5, h6 {
     letter-spacing: 0;
+    font-weight: 500;
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -42,31 +45,73 @@ a:hover {
 
 h1 {
     margin: 2em 0 0.15em 0;
-    font-size: 1.25em;
+    font-size: 1.5em;
     text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: .1em;
 }
 
 h2 {
     font-family: "acumin-pro-wide";
     margin:1em 0 .25em 0;
     font-size:1.5em;
-}
-
-h3 {
-    font-size:1em;
-    line-height:1.65em;
-    margin:0 0 .5em 0;
-}
-
-
-#about h3  {    
-    font-size: 1em;
-    line-height: 1.65em;
-    margin-top: .5em;
     
 }
 
-h4  { font-family: "acumin-pro";}
+h3 {
+    font-size: 1em;
+    font-family: "acumin-pro-wide";
+    line-height: 1.4em;
+    font-weight: 400;
+     margin-top: .5em;
+    
+}
+
+
+#about p {
+    line-height: 1.45em;
+    font-weight: 300;
+}
+
+#about strong {
+    font-family: "acumin-pro-wide";
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    font-size: .8em;
+}
+
+#work h4  {
+    font-family: "acumin-pro-wide";
+    font-weight: 600;
+    font-size: .7em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+#work light{
+    font-weight: 300;
+}
+
+#learn li{
+    font-weight: 300;
+    line-height: 1.2em;
+    margin-bottom: .75em;
+    text-align: left;
+    font-size: .9em;
+    width:90%;
+    
+}
+#learn strong {
+    font-family: "acumin-pro-wide";
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    font-size: .8em;
+}
+
+
+
 section {
     margin-bottom:10em;
 }
@@ -110,6 +155,7 @@ section {
 
 #pursuit-header h2 {
     font-family: "acumin-pro";
+    font-weight: 500;
     margin: 0 0 .25em 0;
     font-size: 1.25em;
     text-align: center;
@@ -120,6 +166,8 @@ section {
     display:block;
     box-shadow: 0 0 10px rgba(0,0,0,.2);
 }
+
+
 /* The sticky class is added to the navbar with JS when it reaches its scroll position */
 .sticky {
   position: fixed;
